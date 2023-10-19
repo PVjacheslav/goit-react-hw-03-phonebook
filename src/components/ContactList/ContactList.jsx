@@ -1,3 +1,4 @@
+import {ImBin} from "react-icons/im"
 import { Item, List, Button } from "./ContactList.styled";
 
 export const ContactList = ({ contacts, onCleaningContact }) => (
@@ -8,6 +9,7 @@ export const ContactList = ({ contacts, onCleaningContact }) => (
                 type="button"
                 name="delete"
                 onClick={() => onCleaningContact(contact.id)}>
+                <ImBin fill="#000000" width="20" height="20"/>
                 delete</Button>}
         </Item>
     ))}

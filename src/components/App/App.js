@@ -16,6 +16,24 @@ export class App extends Component {
     filter: '',
   };
 
+  // Збереження контактів в LokalStorage
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (contacts !== null) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      // Порівнюємо наявні контакти з попереднім обєктом контактів
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+      // Якщо контакти змінились зберігаємо в localStorage
+    }
+  }
+
   // Додавання нового контакта до списку контактів
   addContact = contact => {
     const onIsContact = this.state.contacts.some(
@@ -33,7 +51,7 @@ export class App extends Component {
 
   // Зміна значення фільтра
   changeFilter = evt => {
-    this.setState({ filter: evt.target.value });
+    this.setState({ filter: evt.target.value.trim() });
   };
 
   // Отримання відфільтрованих контактів
@@ -45,6 +63,7 @@ export class App extends Component {
       contact.name.toLocaleLowerCase().includes(renewedFilter)
     );
   };
+
   // Видалення контакту зі списку
   cleaningContact = contactId => {
     this.setState(prevState => {

@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { ErrMsg, Label, StyledField, StyledForm } from './ContactForm.styled';
+import {ImPlus} from "react-icons/im"
 
 const contactFormSchema = Yup.object().shape({
     name:   Yup.string().min(2, "Too short!").required("This field is required!"),
@@ -35,7 +36,9 @@ export const ContactForm = ({onAdd}) => {
                         <ErrMsg name="number" component="div"/>
                 </Label>
 
-                <button type="submit">Add Contact</button>
+                    <button type="submit">
+                        <ImPlus fill="#2450DB" width="20" height="20"/>
+                        Add Contact</button>
             </StyledForm>
             </Formik>
         </div>

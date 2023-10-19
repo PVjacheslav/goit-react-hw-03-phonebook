@@ -10,7 +10,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  width: 360px;
+  width: 400px;
   padding: 10px;
   margin: 0 auto;
   border-radius: 4px;

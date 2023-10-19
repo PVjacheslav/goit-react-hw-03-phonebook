@@ -4,7 +4,7 @@ import { Form, Field, ErrorMessage } from "formik";
 export const StyledForm = styled(Form)`
     display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 400px;
   padding: 12px;
   background-color: #F0F011;
   border: 4px solid #2450DB;
